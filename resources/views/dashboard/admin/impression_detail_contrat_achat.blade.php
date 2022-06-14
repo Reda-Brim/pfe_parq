@@ -38,11 +38,11 @@
                 margin-left: 10%;
             }
             .monBoutton {
-    background-color: blue;
+                background-color: rgb(192, 5, 5);
     Color:white;
     font-weight: bold;
     padding: 10px 20px;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer; 
     box-shadow: 0 8px 16px 0 grey;
     text-decoration: none;
@@ -58,6 +58,7 @@
     </head>
     <body>
       <img  class="d-flex justify-content-start" src="{{ asset('/uploads/logo.png')}}" alt="logo" />  
+      <button id='imprimer' onclick="window.print()" class="monBoutton" class="fa fa-print" ><i  ></i>Imprimer  </button>
 
         <center><h1 > Contrat d'achat d'une voiture</h1></center>
         <div class="fic"> 
@@ -108,7 +109,6 @@
                   </table>
                 </center>
                   <br><br> <br><br> 
-                  <button id='imprimer' onclick="window.print()" class="monBoutton" class="fa fa-print" ><i  ></i>Imprimer  </button>
 
                 </div>
                 

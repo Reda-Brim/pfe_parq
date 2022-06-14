@@ -1,19 +1,19 @@
-@extends('dashboard.user.layouts.User-dash-layout')
-@section('title','User dashboard')
+@extends('dashboard.admin.layouts.Admin-dash-layout')
+@section('title','Admin dashboard')
  
   
  @section('content')
  
 <div class="content" style=" background: hsla(0, 0%, 100%, 0.55);margin-left: 25%; margin-right:25%">
   <div class="card-header ">
-      <h4 ><strong> Changer mot de passe </strong> <a href="{{route('user.profil_client')}}" class="btn btn-danger float-right">Retour</a></h4>
+      <h4 ><strong> Changer mot de passe </strong> <a href="#" class="btn btn-danger float-right">Retour</a></h4>
       
     </div>
   <div class="card-body p-5 shadow-5 text-center" >
    
   
       
-      <form action="{{route('user.editer_password')}}" method="POST" autocomplete="off" enctype="multipart/form-data">
+      <form action="{{route('admin.editer_password_admin')}}" method="POST" autocomplete="off" enctype="multipart/form-data">
         @if(Session::get('succes'))
         <div class="alert alert-success">
           {{Session::get('succes')}}

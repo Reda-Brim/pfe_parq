@@ -338,6 +338,38 @@ class UserController extends Controller
  return view('dashboard.user.detail_vehicules_disponible',$data);
     }
 
+    public function Vos_contrats(){
+
+        $cin=Auth::user()->cin;
+
+ 
+            $contrats = DB::table('contrats')
+            ->join('users', 'contrats.cinClient', '=', 'users.cin')
+            ->join('vehicules', 'contrats.matriculeVehicules', '=', 'vehicules.matricule')
+         
+            ->select('contrats.*', 'users.nom', 'users.prenom','users.telephone','users.codePotal','users.ville','users.numeroPermis'
+            ,'vehicules.Marque','vehicules.Modele')
+            ->where('cin',$cin)
+
+            ->get();
+       
+        
+        $data=compact('contrats');
+       
+ 
+        return view('dashboard.user.Vos_contrats')->with($data);
+
+    }
+
+    public function Vos_Demandes(){
+        $cin=auth::user()->cin;
+    $demandes=Demande::where('cinClient_demande','=',$cin)->get();
+
+    $data=compact('demandes');
+    
+    return view('dashboard.user.Vos_Demandes',$data);
+    }
+
 
 
 

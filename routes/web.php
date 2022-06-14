@@ -62,6 +62,13 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::get('page_demande_achat/{id}',[UserController::class,'page_demande_achat'])->name('page_demande_achat');
         Route::post('demande_achat',[UserController::class,'demande_achat'])->name('demande_achat');
 
+        Route::get('Vos_Contrats',[UserController::class,'Vos_Contrats'])->name('Vos_Contrats');
+        Route::get('impression_detail_contrat_location/{numeroContrat}/{cinClient}/{matriculeVehicules}',[AdminController::class,'impression_detail_contrat_location'])->name('impression_detail_contrat_location');
+        Route::get('impression_detail_contrat_achat/{numeroContrat}/{cinClient}/{matriculeVehicules}',[AdminController::class,'impression_detail_contrat_achat'])->name('impression_detail_contrat_achat');
+
+        Route::get('Vos_Demandes',[UserController::class,'Vos_Demandes'])->name('Vos_Demandes');
+
+        
         
 
 
@@ -84,6 +91,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
         Route::view('/home','dashboard.admin.home')->name('home');
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
+        Route::view('/changer_password_admin','dashboard.admin.changer_password_admin')->name('changer_password_admin');
+        Route::post('/editer_password_admin',[AdminController::class,'editer_password_admin'])->name('editer_password_admin');
 
        //CLIENTS
         Route::get('/Listes_des_clients',[AdminController::class,'list_clients'])->name('Listes_des_clients');     
@@ -162,7 +171,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
 
-    
+  
 
 
 

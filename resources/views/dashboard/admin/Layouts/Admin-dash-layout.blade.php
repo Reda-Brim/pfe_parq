@@ -144,7 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #04618b;" >
     <!-- Brand Logo -->
     <a href="{{route('admin.home')}}" class="brand-link">
       <img  class="d-flex justify-content-start" src="{{ asset('/uploads/logo.png')}}" alt="logo" />  
@@ -303,16 +303,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
      
     
-
+      <li class="nav-item">
+        <a href="#" class="nav-link ">
+          <i class="nav-icon fas  fa-cog"></i>
+          <p>
+            Paramètres
+           
+            <i class=" bi bi-people right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Paramètres
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
+            <a href="{{route('admin.changer_password_admin')}}" class="nav-link">
+              <i class="fa fa-key nav-icon"></i>
+              <p>Changer Mot de passe </p>
             </a>
           </li>
+          <li class="nav-item">
+      
+         
+            <a class="nav-link" href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+              
+              <i class="fas fa-sign-out-alt" style="font-size:20px"></i>
+              <p>Déconnexion</p>
+            </a>
+            <form action="{{ route('user.logout') }}" id="logout-form" method="post">@csrf</form>
+   
+        </li>
+
+
+        </ul>
+      </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

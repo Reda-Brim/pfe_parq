@@ -140,7 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #04618b;" >
     <!-- Brand Logo -->
     <a href="{{route('user.home')}}" class="brand-link">
       <img  class="d-flex justify-content-start" src="{{ asset('/uploads/logo.png')}}" alt="logo" />  
@@ -222,11 +222,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{route('user.Vos_Contrats')}}" class="nav-link">
           <i class="nav-icon fas  fa-file"></i>
           <p>
             Vos Contrats         
-            <i class=" bi bi-people right fas fa-angle-left"></i>
+            <i class=" bi bi-people right fas fa-angle-right"></i>
+          </p>
+        </a>
+
+      </li>
+      <li class="nav-item">
+        <a href="{{route('user.Vos_Demandes')}}" class="nav-link">
+          <i class="nav-icon fas  fa-file"></i>
+          <p>
+            Vos Demandes         
+            <i class=" bi bi-people right fas fa-angle-right"></i>
           </p>
         </a>
 

@@ -15,7 +15,7 @@
               <h3 class="card-title">Liste des demandes d'achat </h3>
               <div class="d-flex justify-content-end " style=" column-gap: 20px;">
 
-                <a href="#" class="btn btn-warning">Imprimer liste des demandes </a>
+                {{-- <a href="#" class="btn btn-warning">Imprimer liste des demandes </a> --}}
 
               </div>
             </div>

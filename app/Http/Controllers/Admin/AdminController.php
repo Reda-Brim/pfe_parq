@@ -41,6 +41,25 @@ class AdminController extends Controller
         return redirect('/');
     }
 
+    function editer_password_admin(Request $request){
+        $request->validate([
+
+            'password'=>'required|min:5|max:30',
+            'cpassword'=>'required|min:5|max:30|same:password'
+
+        ]);
+        $admin=Auth::user();
+        $id=$admin->id;
+
+        $changer_password=DB::table('admins')
+                         ->where('id',$id)
+                         ->update([
+                             'password'=>bcrypt($request->input('password')),
+                         ]);
+                         
+        return redirect('admin/changer_password_admin')->with('succes','mots de passe modifier avec succes');
+    }
+
 
 
 

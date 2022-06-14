@@ -1,18 +1,15 @@
-@extends('dashboard.admin.layouts.admin-dash-layout')
-
-@section('title','Admin dashboard')
+@extends('dashboard.user.layouts.User-dash-layout')
+@section('title','User dashboard')
 
 
 @section('content')
-
-
 <section class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Liste des demandes de location</h3>
+              <h3 class="card-title">Liste de vos demandes</h3>
               <div class="d-flex justify-content-end " style=" column-gap: 20px;">
 
                 {{-- <a href="#" class="btn btn-warning">Imprimer liste des demandes </a> --}}
@@ -24,25 +21,22 @@
               <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12">
   
 
-                <form action="">
-                  <div class="d-flex justify-content-end mb-4">
-                   <input type="search" name="search" class="form-control" placeholder="chercher par nom ou prenom, cin, email, telephone" >    {{--value="{{$search}}" --}}
-                   <button class="btn btn-primary">Chercher</button>
-                  </div>
-                </form>
+         
                 <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info" >
                 <thead>
                 <tr>
                   <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">N°demande</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="">Cin Client</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="" >Cin Client</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="">Matricule voiture</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="">Type Demande</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Date Debut Location</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Date fin Location</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Date Debut Location demande </th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Date Fin Location demande </th>
+
+                  {{-- <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Date Debut Location </th> --}}
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Date Achat </th>
                   {{-- <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Modele voiture</th> --}}
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Status</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Actions</th>
                   {{-- <th>Jour reste</th> --}}
               
                 </tr>
@@ -54,37 +48,21 @@
                 <tr>
 
                  
-                  <td>{{$demande->id}}</td>
+                  <td >{{$demande->id}}</td>
                   <td>{{$demande->cinClient_demande}}</td>  
                   <td>{{$demande->matriculeVehicules_demande}}</td> 
                   <td>{{$demande->typeDemande}}</td> 
                   <td>{{$demande->dateDebutLocation_demande}}</td> 
                   <td>{{$demande->dateFinLocation_demande}}</td> 
-                  {{-- <td>{{$demande->dateAchat_demande}}</td>  --}}
-                  <td>{{$demande->status_demande}}</td>               
-       
+                  <td>{{$demande->dateAchat_demande}}</td>  
+                  @if($demande->status_demande=='Approuvé')
+                  <td class=" bg-success text-white font-weight-bold">{{$demande->status_demande}}</td>   
+                @elseif($demande->status_demande=='Refuser')
+                  <td class=" bg-danger text-white font-weight-bold">{{$demande->status_demande}}</td>               
                 
+                @endif
 
-                  <td>
-                 
-                    <a href="page_accepter_demande_location/{{$demande->id}}" class="fa fa-check"  >Accepter</a>
-                  
-             
-                  
-
-                
-                    <a href="Refuser_demande_location/{{$demande->id}}" class="fa fa-ban" >Refuser</a>
-                    
-                 
-                 
-{{-- 
-               
-                    <a href="#" class="fa fa-trash " style="width: 20%"></a>
-                  
-                    <a href="#" class="fa fa-print" style="width: 20%"></a> --}}
-          
-
-                  </td>
+    
 
                 </tr>
                 @endforeach
@@ -108,7 +86,4 @@
     </div>
     <!-- /.container-fluid -->
   </section>
-
-
-
-@endsection
+  @endsection
