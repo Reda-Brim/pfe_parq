@@ -34,9 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('admin.home')}}" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+
     </ul>
 
     <!-- Right navbar links -->
@@ -149,8 +147,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('admin.home')}}" class="brand-link">
-      <img src="{{asset('Admin-assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">CARSERVE</span>
+      <img  class="d-flex justify-content-start" src="{{ asset('/uploads/logo.png')}}" alt="logo" />  
+
     </a>
 
     <!-- Sidebar -->
@@ -265,13 +263,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{route('admin.Nouveau_contrat_achat')}}" class="nav-link">
               <i class="fa fa-plus-square nav-icon"></i>
               
-              <p>Nouveau Contrat achat</p>
+              <p>Contrat achat</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('admin.Nouveau_contrat_location')}}" class="nav-link">
               <i class="fa fa-plus-square nav-icon"></i>
-              <p>Nouveau Contrat location</p>
+              <p>Contrat location</p>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link ">
+          <i class="nav-icon fa fa-list"></i>
+          <p>
+            Gestion des Demandes
+           
+            <i class=" bi bi-people right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{route('admin.liste_demande_achat')}}" class="nav-link">
+              <i class="fa fa-list nav-icon"></i>
+              <p>Liste demande achat</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.liste_demande_location')}}" class="nav-link">
+              <i class="fa fa-list nav-icon"></i>
+              <p>Liste demande location</p>
             </a>
           </li>
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 use App\Models\Contrat;
+use App\Models\Demande;
 use App\Models\User;
 use App\Models\Vehicule;
 use Illuminate\Support\Facades\Auth;
@@ -594,6 +595,21 @@ if($test == 0 )
 
     $save_contrat=$contrats->save();
     if($save_contrat){
+        $nodispo='1';
+                    
+        $updating_disponible=DB::table('vehicules')
+                  ->where('matricule',$request->matriculeVehicules)
+                   ->update([
+                    'disponibilite'=>$nodispo,
+                    'dateDebutL'=>null,
+                    'dateFinL'=>null,
+                    
+             
+                   ]);
+
+
+
+
         return redirect()->back()->with('succes','enregistré avec succès');
 
 
@@ -906,24 +922,228 @@ foreach($myquery as $i)
     }
 
 
-    public function date_check_assurance($matricule){
-
-
-
-
-
-
+    public function liste_demande_location(){
 
         
+        $demandes=Demande::where('typeDemande','=','location')->get();
+
+        $data=compact('demandes');
+        
+        return view('dashboard.admin.liste_demande_location',$data);  
     }
 
-    public function date_check_visite($matricule){
+    public function liste_demande_achat(){
 
 
+        $demandes=Demande::where('typeDemande','=','Vente')->get();
 
+        $data=compact('demandes');
+        
+        return view('dashboard.admin.liste_demande_achat',$data);
         
     }
+    public function page_accepter_demande_location($id){
+       
+        $row=DB::table('demandes')
+        ->where('id',$id)
+        ->first();
 
+      $data=[
+     'Info'=>$row
+      ];     
+
+  return view('dashboard.admin.page_accepter_demande_location',$data);  
+  
+
+
+    }
+  
+
+   public function accepter_demande_location(Request $request){
+       
+    $demandes=Demande::where('id',$request->cid)->get();
+
+
+        $request->validate([
+            'numeroContrat'=>'required|Unique:contrats,numeroContrat',
+           
+          
+                
+            'typePaiement'=>'required|in:cheque,carteBancaire,especes',             
+
+            'coutParJourVehicules'=>'required',
+
+            'cinClient'=>'required',
+  
+        
+            
+        ]);
+        $contrats=new Contrat();
+        $contrats->numeroContrat=$request->numeroContrat;
+        $contrats->cinClient=$request->cinClient;
+        $contrats->typeContrat='location';
+        $contrats->matriculeVehicules=$request->matricule;
+        $contrats->typePaiement=$request->typePaiement;
+        $contrats->dateDebutLocationVehicules=$request->dateDebutLocation;
+        $contrats->dateFinLocationVehicules=$request->dateFinLocation;
+        $contrats->coutParJourVehicules=$request->coutParJourVehicules;
+      
+        
+    
+        $save_contrat=$contrats->save();
+        if($save_contrat){
+    
+            
+     
+            $nodispo='1';
+    
+             $updating_disponible=DB::table('vehicules')
+                       ->where('matricule',$request->matricule)
+                        ->update([
+                         'disponibilite'=>$nodispo,
+                         'dateDebutL'=>$request->dateDebutLocation,
+                         'dateFinL'=>$request->dateFintLocation
+                        ]);
+
+            $updating_demande_accepter=DB::table('demandes')
+                     ->where('id',$request->cid)             
+                     ->update([
+                     'status_demande'=>'Approuvé',
+
+                ]);
+
+
+            
+
+            
+    
+          
+    
+            return redirect()->back()->with('succes','enregistré avec succès');
+    
+        }else
+        {
+            return redirect()->back()->with('echec','Quelque chose est mal passé, échec de l\'enregistrement');
+    
+        }
+
+
+
+
+
+   }
+
+   public function page_accepter_demande_achat($id){
+
+    $row=DB::table('demandes')
+    ->where('id',$id)
+    ->first();
+
+  $data=[
+ 'Info'=>$row
+  ];     
+
+return view('dashboard.admin.page_accepter_demande_achat',$data);  
+   }
+
+   
+   public function accepter_demande_achat(Request $request){
+       
+    $demandes=Demande::where('id',$request->cid)->get();
+
+
+        $request->validate([
+            'numeroContrat'=>'required|Unique:contrats,numeroContrat',
+           
+          
+                
+            'typePaiement'=>'required|in:cheque,carteBancaire,especes',             
+
+            'prixAchatVehicules'=>'required', 
+
+            'cinClient'=>'required',
+            
+        
+            
+        ]);
+        $contrats=new Contrat();
+        $contrats->numeroContrat=$request->numeroContrat;
+        $contrats->cinClient=$request->cinClient;
+        $contrats->typeContrat='Vente';
+        $contrats->matriculeVehicules=$request->matricule;
+        $contrats->typePaiement=$request->typePaiement;
+        $contrats->dateAchatVehicules=$request->dateAchat;
+        $contrats->prixAchatVehicules=$request->prixAchatVehicules;
+      
+        
+    
+        $save_contrat=$contrats->save();
+        if($save_contrat){
+    
+            
+     
+            $nodispo='1';
+    
+             $updating_disponible=DB::table('vehicules')
+                       ->where('matricule',$request->matricule)
+                        ->update([
+                         'disponibilite'=>$nodispo,
+                         'dateDebutL'=>$request->dateDebutLocation,
+                         'dateFinL'=>$request->dateFintLocation
+                        ]);
+
+            $updating_demande_accepter=DB::table('demandes')
+                     ->where('id',$request->cid)             
+                     ->update([
+                     'status_demande'=>'Approuvé',
+
+                ]);
+
+
+            
+
+            
+    
+          
+    
+            return redirect()->back()->with('succes','enregistré avec succès');
+    
+        }else
+        {
+            return redirect()->back()->with('echec','Quelque chose est mal passé, échec de l\'enregistrement');
+    
+        }
+
+
+
+
+
+   }
+
+   public function Refuser_demande_achat($id){
+
+            $updating_demande_refuser_achat=DB::table('demandes')
+                     ->where('id',$id)             
+                     ->update([
+                     'status_demande'=>'Refuser',
+
+                ]);
+                return Redirect('admin/liste_demande_achat');
+
+
+   }
+   public function Refuser_demande_location($id){
+
+    $updating_demande_refuser_location=DB::table('demandes')
+             ->where('id',$id)             
+             ->update([
+             'status_demande'=>'Refuser',
+
+        ]);
+        return Redirect('admin/liste_demande_location');
+
+
+}
 
 
 

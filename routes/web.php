@@ -53,6 +53,19 @@ Route::prefix('user')->name('user.')->group(function(){
 
         
         Route::get('vehicules_disponible',[UserController::class,'vehicules_disponible'])->name('vehicules_disponible');
+        Route::get('detail_vehicules_disponible/{id}',[UserController::class,'detail_vehicules_disponible'])->name('detail_vehicules_disponible');
+
+
+        Route::get('page_demande_location/{id}',[UserController::class,'page_demande_location'])->name('page_demande_location');
+        Route::post('demande_location',[UserController::class,'demande_location'])->name('demande_location');
+
+        Route::get('page_demande_achat/{id}',[UserController::class,'page_demande_achat'])->name('page_demande_achat');
+        Route::post('demande_achat',[UserController::class,'demande_achat'])->name('demande_achat');
+
+        
+
+
+
 
 
 
@@ -132,6 +145,25 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::post('editer_contrat_location',[AdminController::class,'editer_contrat_location'])->name('editer_contrat_location');
 
     Route::get('supprimer_contrat/{id}',[AdminController::class,'supprimer_contrat'])->name('supprimer_contrat');
+
+
+    Route::get('liste_demande_location',[AdminController::class,'liste_demande_location'])->name('liste_demande_location');
+    Route::get('liste_demande_achat',[AdminController::class,'liste_demande_achat'])->name('liste_demande_achat');
+    
+
+    Route::get('page_accepter_demande_location/{id}',[AdminController::class,'page_accepter_demande_location'])->name('page_accepter_demande_location');
+    Route::post('accepter_demande_location',[AdminController::class,'accepter_demande_location'])->name('accepter_demande_location');
+    
+    Route::get('page_accepter_demande_achat/{id}',[AdminController::class,'page_accepter_demande_achat'])->name('page_accepter_demande_achat');
+    Route::post('accepter_demande_achat',[AdminController::class,'accepter_demande_achat'])->name('accepter_demande_achat');
+
+    Route::get('Refuser_demande_achat/{id}',[AdminController::class,'Refuser_demande_achat'])->name('Refuser_demande_achat');
+    Route::get('Refuser_demande_location/{id}',[AdminController::class,'Refuser_demande_location'])->name('Refuser_demande_location');
+
+
+
+    
+
 
 
     });

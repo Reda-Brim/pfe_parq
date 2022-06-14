@@ -11,17 +11,18 @@
             <div class="card-header">
               <h3 class="card-title">Liste des vehicules</h3>
               <div class="d-flex justify-content-end ">
-                <a href="{{Route('admin.Nouveau_vehicules')}}" class="btn btn-primary">Ajouter un nouvel vehicule</a>
+                {{-- <a href="{{Route('user.vehicules_disponible')}}" class="btn btn-danger">retour</a> --}}
               </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12">
   
-
+                
                 <form action="">
                   <div class="d-flex justify-content-end mb-4">
-                   <input type="search" name="search" class="form-control" placeholder="chercher par matricule ou marque, Modele, carburant, Année du Modele, puissance" value="{{$search}}">
+                   <input type="search" name="search" class="form-control" placeholder="chercher par matricule ou marque, Modele, carburant, Année du Modele, puissance" >
+                   {{-- value="{{$search}}" --}}
                    <button class="btn btn-primary">Chercher</button>
                   </div>
                 </form>
@@ -54,15 +55,13 @@
                   <td>
                     <img src=" {{ asset('/uploads/vehicules/'.$vehicule->voitureImage)}}"  width="70px" height="70px" alt="Image">
            
-                    {{-- {{$vehicule->voitureImage}}</td> --}}
+                 
                   </td>
                   <td>
+                    <a href="page_demande_location/{{$vehicule->id}}" class="btn btn-primary" >louer</a>
+                    <a href="page_demande_achat/{{$vehicule->id}}" class="btn btn-primary" >Acheter</a>    
+                    <a href="detail_vehicules_disponible/{{$vehicule->id}}" class="btn btn-primary" >detail</a>   
 
-
-                    <a href="detail_vehicule/{{$vehicule->id}}" class="fa fa-eye" style="width: 30%"></a>
-                   
-                    <a href="modifier_vehicule/{{$vehicule->id}}" class="fas fa-edit" style="width: 30%"></a>
-                    <a href="supprimer_vehicule/{{$vehicule->id}}" class="fa fa-trash " style="width: 30%"></a>
                   </td>
                 </tr>
                     

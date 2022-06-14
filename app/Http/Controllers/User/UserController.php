@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Models\Vehicule;
 use App\Models\Contrat;
+use App\Models\Demande;
+
 class UserController extends Controller
 {
     function create(Request $request){
@@ -226,6 +228,114 @@ class UserController extends Controller
        
  
         return view('dashboard.user.vehicules_disponible')->with($data);
+    }
+
+    function page_demande_location($id){
+
+        $row=DB::table('vehicules')
+        ->where('id',$id)
+        ->first();
+
+      $data=[
+     'Info'=>$row
+      ];     
+
+  return view('dashboard.user.page_demande_location',$data);  
+
+
+    }
+    function demande_location(Request $request){
+
+        $request->validate([
+            'dateDebutLocation_demande'=>'required',
+            'dateFinLocation_demande'=>'required'
+        ]);
+
+        $demandes=new Demande();
+      
+        $demandes->cinClient_demande=Auth::user()->cin;
+        $demandes->typeDemande='location';
+        $demandes->matriculeVehicules_demande=$request->matricule;
+      
+        $demandes->dateDebutLocation_demande=$request->dateDebutLocation_demande;
+        $demandes->dateFinLocation_demande=$request->dateFinLocation_demande;
+  
+        
+    
+        $save_demande=$demandes->save();
+        if($save_demande){
+ 
+            return redirect()->back()->with('succes','Demande envoyer avec succes');
+    
+        }else
+        {
+            return redirect()->back()->with('echec','Quelque chose est mal passé, échec de l\'enregistrement');
+    
+        }
+
+
+    }
+    
+    function page_demande_achat($id){
+
+        $row=DB::table('vehicules')
+        ->where('id',$id)
+        ->first();
+
+      $data=[
+     'Info'=>$row
+      ];     
+
+  return view('dashboard.user.page_demande_achat',$data);  
+
+
+    }
+
+    
+
+    function demande_achat(Request $request){
+
+        $request->validate([
+            'dateAchat_demande'=>'required',
+        ]);
+
+        $demandes=new Demande();
+      
+        $demandes->cinClient_demande=Auth::user()->cin;
+        $demandes->typeDemande='Vente';
+        $demandes->matriculeVehicules_demande=$request->matricule;
+      
+        $demandes->dateAchat_demande=$request->dateAchat_demande;
+      
+  
+        
+    
+        $save_demande=$demandes->save();
+        if($save_demande){
+ 
+            return redirect()->back()->with('succes','Demande envoyer avec succes');
+    
+        }else
+        {
+            return redirect()->back()->with('echec','Quelque chose est mal passé, échec de l\'enregistrement');
+    
+        }
+
+
+    }
+    public function detail_vehicules_disponible($id){
+
+        $vehicules = DB::table('vehicules')            
+        ->select('vehicules.*')
+        ->where('id',$id)
+        ->first();
+     
+        $data=[
+            'Info'=>$vehicules
+        ]; 
+
+
+ return view('dashboard.user.detail_vehicules_disponible',$data);
     }
 
 
