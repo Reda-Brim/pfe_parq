@@ -17,7 +17,7 @@
                 <a href="{{route('admin.Nouveau_contrat_achat')}}" class="btn btn-primary"><STROng>+ </STROng> Contrat Achat</a>
 
                 <a href="{{route('admin.Nouveau_contrat_location')}}" class="btn btn-primary"><STROng>+ </STROng> Contrat Location</a>
-                <a href="{{route('admin.impression_contrats')}} " class="btn btn-warning">Imprimer liste des vehicules </a>
+                <a href="{{route('admin.impression_contrats')}} " class="btn btn-warning">Imprimer liste des contrats </a>
 
               </div>
             </div>
@@ -28,7 +28,7 @@
 
                 <form action="">
                   <div class="d-flex justify-content-end mb-4">
-                   <input type="search" name="search" class="form-control" placeholder="chercher par nom ou prenom, cin, email, telephone" value="{{$search}}">
+                   <input type="search" name="search" class="form-control" placeholder="chercher par nom ou prénom, cin, email, téléphone" value="{{$search}}">
                    <button class="btn btn-primary">Chercher</button>
                   </div>
                 </form>
@@ -38,7 +38,7 @@
                   <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">N°contrat</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="">Cin Client</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="">Nom Client</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="">Prenom Client</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="">Prénom Client</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Matricule voiture</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Marque voiture</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="">Modele voiture</th>

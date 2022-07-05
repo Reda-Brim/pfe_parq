@@ -148,7 +148,7 @@
                                 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Marque et modele du voiture</label>
+                                                    <label>Marque et modèle du voiture</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>{{$Info->Marque}} {{$Info->Modele}}</p>
@@ -156,7 +156,7 @@
                                             </div>
                                             <div class="row">
                                               <div class="col-md-6">
-                                                  <label>Année Modele</label>
+                                                  <label>L'année de modèle</label>
                                               </div>
                                               <div class="col-md-6">
                                                   <p>{{$Info->AnneeModele}}</p>
@@ -181,7 +181,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Date Debut Assurance</label>
+                                                    <label>Date Début Assurance</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>{{$Info->dateDebutAssurance}}</p>
@@ -198,7 +198,7 @@
  
                                           <div class="row">
                                             <div class="col-md-6">
-                                                <label>Date Debut Certificat Visite Technique</label>
+                                                <label>Date Début Certificat Visite Technique</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p>{{$Info->dateDebutCertificatVisiteTechnique}}</p>

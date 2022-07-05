@@ -26,7 +26,7 @@
 
                 <form action="">
                   <div class="d-flex justify-content-end mb-4">
-                   <input type="search" name="search" class="form-control" placeholder="chercher par nom ou prenom, cin, email, telephone" >    {{--value="{{$search}}" --}}
+                   <input type="search" name="search" class="form-control" placeholder="chercher par nom ou prénom, cin, email, telephone" >    {{--value="{{$search}}" --}}
                    <button class="btn btn-primary">Chercher</button>
                   </div>
                 </form>

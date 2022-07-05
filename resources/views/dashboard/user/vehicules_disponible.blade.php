@@ -21,7 +21,7 @@
                 
                 <form action="">
                   <div class="d-flex justify-content-end mb-4">
-                   <input type="search" name="search" class="form-control" placeholder="chercher par matricule ou marque, Modele, carburant, Année du Modele, puissance" >
+                   <input type="search" name="search" class="form-control" placeholder="chercher par matricule ou marque, Modèle, carburant, Année du Modele, puissance" >
                    {{-- value="{{$search}}" --}}
                    <button class="btn btn-primary">Chercher</button>
                   </div>

@@ -52,8 +52,8 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" name="prenom" class="form-control" placeholder="Entrer prenom" value="{{old ('prenom')}}" >
-                      <label class="form-label" for="prenom">Prenom</label>
+                      <input type="text" name="prenom" class="form-control" placeholder="Entrer Prénom" value="{{old ('prenom')}}" >
+                      <label class="form-label" for="prenom">Prénom</label>
                       <span class="text-danger">@error('prenom'){{$message}}@enderror</span>
                     </div>
                   </div>
@@ -78,7 +78,7 @@
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input type="text" name="telephone" class="form-control" placeholder="Entrer numero telephone" value="{{old ('phone')}}"/>
-                      <label class="form-label" for="telephone">Telephone</label>
+                      <label class="form-label" for="telephone">Téléphone</label>
                       <span class="text-danger">@error('telephone'){{$message}}@enderror</span>
                     </div>
                   </div>
@@ -106,14 +106,14 @@
                 <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <input type="password" name="password" class="form-control" placeholder="Entrer password" value="{{old ('password')}}">
+                    <input type="password" name="password" class="form-control" placeholder="Entrer Mot de passe" value="{{old ('password')}}">
                     <label class="form-label" for="password">Mot de passe</label>
                     <span class="text-danger">@error('password'){{$message}}@enderror</span>
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <input type="password" name="cpassword" class="form-control" placeholder="Entrer confirm password" value="{{old ('cpassword')}}">
+                    <input type="password" name="cpassword" class="form-control" placeholder="Confirmer Mot de passe" value="{{old ('cpassword')}}">
                     <label class="form-label" for="cpassword">Confirmer Mot de passe</label>
                     <span class="text-danger">@error('cpassword'){{$message}}@enderror</span>
                   </div>
@@ -131,7 +131,7 @@
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input type="number" name="codePotal" class="form-control" placeholder="Entrer code postal" value="{{old ('codePotal')}}"/>
-                      <label class="form-label" for="codePotal">Pode Potal</label>
+                      <label class="form-label" for="codePotal">Code Potal</label>
                       <span class="text-danger">@error('codePotal'){{$message}}@enderror</span>
                     </div>
                   </div>
@@ -143,13 +143,13 @@
 
                   <div class="form-outline mb-4">
                       <input type="text" name="numeroPermis" class="form-control" placeholder="Entrer numero Permis" value="{{old ('numeroPermis')}}" >
-                      <label class="form-label" for="numeroPermis">Numero Permis</label>
+                      <label class="form-label" for="numeroPermis">Numéro Permis</label>
                       <span class="text-danger">@error('numeroPermis'){{$message}}@enderror</span>
                   </div>
 
                   <div class="form-outline mb-4">
                     <input type="text" name="adressClient" class="form-control" placeholder="entrer votre adress " value="{{old ('adressClient')}}">
-                    <label class="form-label" for="adressClient">Adress Client</label>
+                    <label class="form-label" for="adressClient">Adresse Client</label>
                     <span class="text-danger">@error('adressClient'){{$message}}@enderror</span>
                   </div>
 
@@ -166,7 +166,7 @@
   
                 <!-- Register buttons -->
                 <div class="text-center">
-                  <P>Vous avez deja un compte ? <a href="{{Route('user.login')}}">Se connecter</a></P>
+                  <P>Vous avez déjà un compte ? <a href="{{Route('user.login')}}">Se connecter</a></P>
  
                 </div>
               </form>

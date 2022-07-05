@@ -38,8 +38,8 @@
               <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="date" name="dateDebutLocation_demande" class="form-control" placeholder="date Debut Location" value="{{old('dateDebutLocation_demande')}}">
-                        <label class="form-label" for="dateDebutLocation_demande">Date Debut Location </label>
+                        <input type="date" name="dateDebutLocation_demande" class="form-control" placeholder="date début Location" value="{{old('dateDebutLocation_demande')}}">
+                        <label class="form-label" for="dateDebutLocation_demande">Date Début Location </label>
                         <span class="text-danger">@error('dateDebutLocation_demande'){{$message}}@enderror</span>
                       </div>
                     </div>

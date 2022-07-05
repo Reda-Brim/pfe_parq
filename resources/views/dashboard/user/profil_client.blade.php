@@ -154,7 +154,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Telephone</label>
+                                                    <label>Téléphone</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>{{$Info->telephone}}</p>

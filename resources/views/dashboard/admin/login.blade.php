@@ -53,7 +53,7 @@
   
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" name="password" class="form-control" placeholder="Entrer password" value="{{old ('password')}}">
+                  <input type="password" name="password" class="form-control" placeholder="Entrer Mot de passe" value="{{old ('password')}}">
                   <label class="form-label" for="password">Mot de passe</label>
                   <span class="text-danger">@error('password'){{$message}}@enderror</span>
                 </div>

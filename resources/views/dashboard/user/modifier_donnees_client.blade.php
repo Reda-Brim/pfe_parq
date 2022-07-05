@@ -60,16 +60,16 @@
               </div>
             <div class="col-md-6 mb-4">
               <div class="form-outline">
-                <input type="text" name="telephone" class="form-control" placeholder="telephone" value="{{$Info_client->telephone}}"/>
-                <label class="form-label" for="telephone">Telephone</label>
+                <input type="text" name="telephone" class="form-control" placeholder="téléphone" value="{{$Info_client->telephone}}"/>
+                <label class="form-label" for="telephone">Téléphone</label>
                 <span class="text-danger">@error('telephone'){{$message}}@enderror</span>
              </div>
             </div>
   
           </div>
           <div class="form-outline mb-4">
-            <input type="text" name="numeroPermis" class="form-control" placeholder="numeroPermis" value="{{$Info_client->numeroPermis}}">
-            <label class="form-label" for="numeroPermis">numeroPermis</label>
+            <input type="text" name="numeroPermis" class="form-control" placeholder="Numéro Permis" value="{{$Info_client->numeroPermis}}">
+            <label class="form-label" for="numeroPermis">Numéro Permis</label>
             <span class="text-danger">@error('numeroPermis'){{$message}}@enderror</span>
           </div>
           
@@ -94,7 +94,7 @@
   
           <div class="form-outline  mb-4">
             <input type="email" name="email" class="form-control" placeholder="email" value="{{$Info_client->email}}" >
-            <label class="form-label" for="email">email</label>
+            <label class="form-label" for="email">Email</label>
             <span class="text-danger">@error('email'){{$message}}@enderror</span>
           </div>
   

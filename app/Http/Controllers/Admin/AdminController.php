@@ -59,7 +59,19 @@ class AdminController extends Controller
                          
         return redirect('admin/changer_password_admin')->with('succes','mots de passe modifier avec succes');
     }
+    function home(){
+      
+        $userCount = User::count(); 
+        $contratCount = Contrat::count(); 
+        $vehiculeCount = Vehicule::count(); 
+        $demandeAchatCount = Demande::where('typeDemande','=','Vente')->count();
+        $demandeLocationCount = Demande::where('typeDemande','=','location')->count();
+        $data=compact('userCount','contratCount','vehiculeCount','demandeAchatCount','demandeLocationCount');
+        
+      return view('dashboard.admin.home')->with($data);
 
+
+   }
 
 
 
@@ -250,7 +262,7 @@ class AdminController extends Controller
 
         $search=$request['search'] ?? "";
         if($search != "") {
-            $vehicules=Vehicule::where('matricule','like',"%$search%")->orWhere('Modele','like',"%$search%")->orWhere('Carburant','like',"%$search%")->orWhere('AnneeModele','like',"%$search%")->orWhere('Puissance','like',"%$search%")->get();
+            $vehicules=Vehicule::where('matricule','like',"%$search%")->orWhere('Modele','like',"%$search%")->orWhere('Carburant','like',"%$search%")->orWhere('AnneeModele','like',"%$search%")->orWhere('Puissance','like',"%$search%")->orWhere('Marque','like',"%$search%")->get();
 
         }else{
             $vehicules=Vehicule::all();
@@ -942,8 +954,7 @@ foreach($myquery as $i)
 
 
     public function liste_demande_location(){
-
-        
+            
         $demandes=Demande::where('typeDemande','=','location')->get();
 
         $data=compact('demandes');

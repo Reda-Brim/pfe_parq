@@ -21,7 +21,7 @@
 {{$Info->typePaiement}}
 {{$Info->prixAchatVehicules}}
 {{$Info->dateAchatVehicules}} --}}
-
+{{-- 
 <!DOCTYPE html>
 <html>
     <head>
@@ -95,6 +95,84 @@
 <center> 
         Fait en deux exemplaires originaux remis à chacune des parties, 
         A <strong>**********</strong>, le <strong>********</strong> <br><br>
+        <table border="1">
+          
+            <tr> <!-- tr cad une ligne-->
+                <th> Le locataire<br>
+                    signature précédée de la mention manuscrite<br>
+                    </th> 
+                <th>Le loueur<br>
+                    signature précédée de la mention manuscrite<br>
+                     </th>
+              
+            </tr>
+                  </table>
+                </center>
+                  <br><br> <br><br> 
+
+                </div>
+                
+    </body>
+</html> --}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Contrat Achat</title>
+        <meta charset="utf-8"></meta>
+        <style>
+            h1{
+                color:rgb(201, 8, 8) ;
+            }
+            h2{
+                color: blue ;
+            }
+            .fic{
+                margin-left: 10%;
+            }
+            .monBoutton {
+                background-color: rgb(192, 5, 5);
+    Color:white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer; 
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: none;
+    margin-left: 90%;
+  }
+
+  @media print{
+    #imprimer{
+        display: none;
+    }}
+
+        </style>
+    </head>
+    <body>
+      <img  class="d-flex justify-content-start" src="{{ asset('/uploads/logo.png')}}" alt="logo" />  
+      <button id='imprimer' onclick="window.print()" class="monBoutton" class="fa fa-print" ><i  ></i>Imprimer  </button>
+
+        <center><h1 > Contrat d'achat d'une voiture</h1></center>
+        <div class="fic"> 
+             <br><br>
+        Appelé ci-après l'acheteur <strong>{{$Info->nom}} {{$Info->prenom}}</strong>, de<strong> {{$Info->cinClient}}</strong>, son numéro de permis est {{$Info->numeroPermis}} habite à  {{$Info->adressClient}} de {{$Info->ville}} son numéro téléphone est {{$Info->telephone}}
+        
+        <br><br>
+        IL A ETE CONVENU CE QUI SUIT; <br>
+        <h2> 1.1 - Nature  et date d'effet du contrat </h2>
+        Le loueur met à disposition du locataire, un véhicule de marque <strong>{{$Info->Marque}}</strong> , immatriculé <strong>{{$Info->matriculeVehicules}}</strong>,
+        Kilométrage du véhicule : <strong>{{$Info->kilometrage}}</strong> kms 
+         à titre onéreux et à compter du <strong>{{$Info->prixAchatVehicules}}</strong>DHS par <strong>{{$Info->typePaiement}}</strong>.Le <strong>{{$Info->dateAchatVehicules}} </strong> 
+                    
+      
+        <h2>1.2 - Prix d'achat de la voiture </h2>
+        Les parties s'entendent sur un prix fixe <strong>{{$Info->prixAchatVehicules}}</strong> DHS .
+    
+
+      
+<center> 
+        Fait en deux exemplaires originaux remis à chacune des parties, 
+        A <strong>Casablanca</strong>, le <strong>{{$Info->dateAchatVehicules}}</strong> <br><br>
         <table border="1">
           
             <tr> <!-- tr cad une ligne-->

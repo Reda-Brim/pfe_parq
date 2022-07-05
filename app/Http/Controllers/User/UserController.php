@@ -113,6 +113,19 @@ class UserController extends Controller
         return view('dashboard.user.profil_client',$data);
 
     }
+    function home(){
+       
+        $cin=Auth::user()->cin;
+        $contratCount = Contrat::where('cinClient','=',$cin)->count(); 
+        $vehiculeCount = Vehicule::where('disponibilite','=','0')->count(); 
+        $demandeAchatCount = Demande::where('cinClient_demande','=',$cin)->where('typeDemande','=','Vente')->count();
+        $demandeLocationCount = Demande::where('cinClient_demande','=',$cin)->where('typeDemande','=','location')->count();
+
+        // $demandeLocationCount = Demande::where('typeDemande','=','location')->count();
+        $data=compact('contratCount','vehiculeCount','demandeAchatCount','demandeLocationCount');
+        
+      return view('dashboard.user.home')->with($data);
+    }
 
  
     function editer_password(Request $request){

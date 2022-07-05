@@ -10,10 +10,10 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Liste des vehicules</h3>
+              <h3 class="card-title">Liste des véhicules</h3>
               <div class="d-flex justify-content-end " style=" column-gap: 20px;">
-                <a href="{{Route('admin.Nouveau_vehicules')}}" class="btn btn-primary">Ajouter un nouvel vehicule</a>
-                <a href="{{route('admin.impression_vehicules')}} " class="btn btn-warning">Imprimer liste des vehicules </a>
+                <a href="{{Route('admin.Nouveau_vehicules')}}" class="btn btn-primary">Ajouter un nouveau véhicule</a>
+                <a href="{{route('admin.impression_vehicules')}} " class="btn btn-warning">Imprimer liste des véhicules </a>
               </div>
             </div>
             <!-- /.card-header -->

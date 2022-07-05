@@ -39,7 +39,7 @@ Route::prefix('user')->name('user.')->group(function(){
     });
 
     Route::middleware(['auth','PreventBackHistory'])->group(function(){
-        Route::view('/home','dashboard.user.home')->name('home'); 
+        Route::get('/home',[UserController::class,'home'])->name('home'); 
        
         // Route::view('/home','dashboard.user.home')->name('home'); 
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
@@ -89,7 +89,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
  
 
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
-        Route::view('/home','dashboard.admin.home')->name('home');
+        Route::get('/home',[AdminController::class,'home'])->name('home');
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
         Route::view('/changer_password_admin','dashboard.admin.changer_password_admin')->name('changer_password_admin');
         Route::post('/editer_password_admin',[AdminController::class,'editer_password_admin'])->name('editer_password_admin');

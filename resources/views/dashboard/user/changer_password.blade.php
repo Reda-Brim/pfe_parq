@@ -32,8 +32,8 @@
          <div class="row">
           <div class="col-md-6 mb-4">
             <div class="form-outline">
-              <input type="password" name="password" class="form-control" placeholder="password" />
-              <label class="form-label" for="password">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="Entrer Mot de passe" />
+              <label class="form-label" for="password">Mot de passe</label>
               <span class="text-danger">@error('password'){{$message}}@enderror</span>
             </div>
           </div>
@@ -41,8 +41,8 @@
 
           <div class="col-md-6 mb-4">
             <div class="form-outline">
-              <input type="password" name="cpassword" class="form-control" placeholder="confirm password" />
-              <label class="form-label" for="cpassword">confirm Mot de passe</label>
+              <input type="password" name="cpassword" class="form-control" placeholder="confirmer Mot de passe" />
+              <label class="form-label" for="cpassword">Confirmer Mot de passe</label>
               <span class="text-danger">@error('cpassword'){{$message}}@enderror</span>
             </div>
           </div>
